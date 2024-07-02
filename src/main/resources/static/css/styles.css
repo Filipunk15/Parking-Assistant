@@ -1,0 +1,170 @@
+/* Base Styles */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	color: #333;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav .undernav a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 1rem;
+	padding: 0.5rem 1rem;
+	transition: background-color 0.3s ease;
+}
+
+nav .undernav a:hover {
+	background-color: #fff;
+	border-radius: 5px;
+	color: black;
+}
+
+header .logindiv {
+	float: left;
+	display: flex;
+	align-items: center;
+}
+
+header .logindiv p {
+	margin: 0 1rem 0 0;
+}
+
+header .logindiv button {
+	padding: 0.5rem 1rem;
+	background-color: #555;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+header .logindiv button:hover {
+	background-color: #777;
+}
+
+main {
+	padding: 2rem;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 1rem;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+form {
+	background-color: #fff;
+	padding: 2rem;
+	border-radius: 5px;
+	max-width: 600px;
+	margin: 2rem auto;
+}
+
+.My-form {
+	background-color: #333;
+	padding: 2rem;
+	border-radius: 5px;
+	max-width: 600px;
+	margin: 2rem auto;
+}
+
+form label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: bold;
+}
+
+form input {
+	width: 100%;
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+form button {
+	padding: 0.5rem 2rem;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+form button:hover {
+	background-color: #555;
+}
+
+#results {
+	margin-top: 2rem;
+}
+
+.spot {
+	background-color: #fff;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.spot p {
+	margin: 0.5rem 0;
+}
+
+button[type="submit"] {
+	padding: 0.5rem 1rem;
+	background-color: #28a745;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+	background-color: #218838;
+}
+
+@media ( max-width : 600px) {
+	nav .undernav {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	nav .undernav a {
+		margin: 0.5rem 0;
+	}
+	header .logindiv {
+		flex-direction: column;
+		align-items: center;
+	}
+	header .logindiv p {
+		margin: 0 0 0.5rem 0;
+	}
+}

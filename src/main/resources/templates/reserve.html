@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Spot</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reserve Parking Spot</h1>
+        <!-- Přidáme th:object, aby formulář mohl pracovat s objektem ParkingSpot -->
+        <form th:action="@{/reserve/{id}(id=${id})}" th:object="${parkingSpot}" method="post">
+            <input type="hidden" id="id" th:value="${parkingSpot.id}">
+            <p>Are you sure you want to reserve this parking spot?</p>
+            <button type="submit" class="btn">Reserve</button>
+        </form>
+    </div>
+</body>
+</html>

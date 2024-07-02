@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Parking Spot</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+		<h1>Parking Assistant - Search Spot</h1>
+		<nav>
+			<div class="undernav">
+				<a th:if="${currentUser != null}" th:href="@{/}">Home</a> 
+				<a th:if="${currentUser != null}" th:href="@{/add-spot}">AddParking Spot</a> 
+				<a th:if="${currentUser == null}" th:href="@{/register}">Register</a>
+				<a th:if="${currentUser == null}" th:href="@{/login}">Login</a>
+			</div>
+			<div th:if="${currentUser != null}" class="logindiv">
+				<p>
+					Logged in as: <span th:text="${currentUser}"></span>
+				</p>
+					<form class="My-form" th:action="@{/logout}" method="post">
+						<button type="submit">Logout</button>
+					</form>
+			</div>
+		</nav>
+	</header>
+    <main>
+        <form th:action="@{/search}" method="get">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="results">
+            <h2 th:if="${results != null}">Available Parking Spots</h2>
+            <div th:each="spot : ${results}">
+                <div class="spot">
+                    <p><strong>Address:</strong> <span th:text="${spot.address}"></span></p>
+                    <p><strong>Available From:</strong> <span th:text="${spot.availableFrom}"></span></p>
+                    <p><strong>Available To:</strong> <span th:text="${spot.availableTo}"></span></p>
+                    <p><strong>Price Per Hour:</strong> $<span th:text="${spot.pricePerHour}"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Parking Assistant</p>
+    </footer>
+</body>
+</html>
