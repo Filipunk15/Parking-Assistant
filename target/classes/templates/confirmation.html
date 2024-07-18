@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation Confirmation</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Reservation Confirmation</h1>
-        <p>Your reservation for the parking spot at <strong th:text="${address}"></strong> has been confirmed.</p>
-        <a href="/" class="btn">Go to Home</a>
+    <div class="container mt-5">
+        <h1 class="text-center">Reservation Confirmation</h1>
+        <p class="text-center">Your reservation for the parking spot at <strong th:text="${address}"></strong> has been confirmed.</p>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Go to Home</a>
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -2,30 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserve Parking Spot</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <h1>Reserve Parking Spot</h1>
-    </header>
-    <main>
-        <div>
-            <h2>Parking Spot Details</h2>
-            <p><strong>Address:</strong> <span th:text="${parkingSpot.address}"></span></p>
-            <p><strong>Available From:</strong> <span th:text="${parkingSpot.availableFrom}"></span></p>
-            <p><strong>Available To:</strong> <span th:text="${parkingSpot.availableTo}"></span></p>
-            <p><strong>Price Per Hour:</strong> $<span th:text="${parkingSpot.pricePerHour}"></span></p>
-            <h3>Owner Details</h3>
-            <p><strong>Email:</strong> <span th:text="${owner.email}"></span></p>
-            <p><strong>Phone:</strong> <span th:text="${owner.phone}"></span></p>
-            <form th:action="@{/reserve/{id}(id=${parkingSpot.id})}" method="post">
-                <button type="submit">Reserve</button>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Parking Assistant</p>
-    </footer>
-</body>
-</html>
+    <div class="container mt-5">
+        <header class="mb-4">
+            <h1 class="text-center">Reserve Parking Spot</h1>
+        </header>
+        <main>
+            <div class="card">
+                <div class="card-body">
+                    <h2>Parking Spot Details</h2>
+                    <p><strong>Address:</strong> <span th:text="${parkingSpot.address}"></span></p>
+                    <p><strong>Available From:</strong> <span th:text="${parkingSpot.availableFrom}"></span></p>
+                    <p><strong>Available To:</strong> <span th:text="${parkingSpot.availableTo}"></span></p>
+                    <p><strong>Price Per Hour:</strong> $<span th:text="${parkingSpot.pricePerHour}"></span></p>
+                    <h3>Owner Details</h3>
+                    <p><strong>Email:</strong> <span th:text="${owner.email}"></span></p>
+                    <p><strong>Phone:</strong> <span th:text="${owner.phone}"></span></p>
+                    <form th:action="@{/reserve/{id}(id=${parkingSpot.id})}" method="post">
+                        <button type="submit" class="btn btn-primary">Reserve</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer class="text-center mt-4">
+            <p>&copy; 2024 Parking Assistant</p>
+        </footer>

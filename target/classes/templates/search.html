@@ -3,49 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Parking Spot</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Search Parking Spot - Parking Assistant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header>
-		<h1>Parking Assistant - Search Spot</h1>
-		<nav>
-			<div class="undernav">
-				<a th:if="${currentUser != null}" th:href="@{/}">Home</a> 
-				<a th:if="${currentUser != null}" th:href="@{/add-spot}">AddParking Spot</a> 
-				<a th:if="${currentUser == null}" th:href="@{/register}">Register</a>
-				<a th:if="${currentUser == null}" th:href="@{/login}">Login</a>
-			</div>
-			<div th:if="${currentUser != null}" class="logindiv">
-				<p>
-					Logged in as: <span th:text="${currentUser}"></span>
-				</p>
-					<form class="My-form" th:action="@{/logout}" method="post">
-						<button type="submit">Logout</button>
-					</form>
-			</div>
-		</nav>
-	</header>
-    <main>
-        <form th:action="@{/search}" method="get">
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required>
-            <button type="submit">Search</button>
-        </form>
-        <div id="results">
-            <h2 th:if="${results != null}">Available Parking Spots</h2>
-            <div th:each="spot : ${results}">
-                <div class="spot">
-                    <p><strong>Address:</strong> <span th:text="${spot.address}"></span></p>
-                    <p><strong>Available From:</strong> <span th:text="${spot.availableFrom}"></span></p>
-                    <p><strong>Available To:</strong> <span th:text="${spot.availableTo}"></span></p>
-                    <p><strong>Price Per Hour:</strong> $<span th:text="${spot.pricePerHour}"></span></p>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">Search Parking Spot</h2>
+                <form th:action="@{/search}" method="get" class="mb-5">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="availableFrom">Available From</label>
+                            <input type="datetime-local" class="form-control" id="availableFrom" name="availableFrom">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="availableTo">Available To</label>
+                            <input type="datetime-local" class="form-control" id="availableTo" name="availableTo">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                </form>
+                <h3 class="mb-4">Available Parking Spots</h3>
+                <div class="row" id="results">
+                    <div th:each="spot : ${parkingSpots}" class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <p><strong>Address:</strong> <span th:text="${spot.address}"></span></p>
+                                <p><strong>Available From:</strong> <span th:text="${spot.availableFrom}"></span></p>
+                                <p><strong>Available To:</strong> <span th:text="${spot.availableTo}"></span></p>
+                                <p><strong>Price Per Hour:</strong> <span th:text="${spot.pricePerHour}"></span></p>
+                                <a th:href="@{/reserve/{id}(id=${spot.id})}" class="btn btn-primary">Reserve</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Parking Assistant</p>
-    </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
