@@ -23,9 +23,10 @@
 
 2. **Použití**
 
-    Přihlášení / Registrace: Uživatelé se mohou přihlásit nebo zaregistrovat (pokud je funkce dostupná).
-    Rezervace parkovacího místa: Vyberte si volné místo a vytvořte rezervaci.
-    Sledování dostupnosti: Zobrazte aktuální stav parkoviště a statistiky.
+    - Přihlášení / Registrace: Uživatelé se mohou přihlásit nebo zaregistrovat
+    - Vytvoření nového parkovacího místa, zarezervování již stávajícího místa
+    - Vyhledávání podle oblasti
+      
 
 3. **Příspěvky**
 
