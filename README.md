@@ -15,13 +15,13 @@
 
 ## Instalace a spuštění
 1. **Klonování repozitáře**:
-   ```
+```
    bash
    git clone https://github.com/Filipunk15/Parking-Assistant.git
    Import projektu do IDE: Otevřete projekt v preferovaném Java IDE (např. IntelliJ IDEA, Eclipse).
    Nastavení závislostí: Ujistěte se, že máte nainstalovány všechny potřebné závislosti.
    Spuštění aplikace: Sestavte a spusťte aplikaci z vašeho IDE.
-
+ ```
 2. **Použití**
  ```
     - Přihlášení / Registrace: Uživatelé se mohou přihlásit nebo zaregistrovat
