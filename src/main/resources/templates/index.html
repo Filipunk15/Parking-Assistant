@@ -1,45 +1,84 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking Assistant</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Assistant</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-    <header>
-        <h1>Parking Assistant - Home</h1>
-        <nav>
-            <div class="undernav">
-                <a th:if="${currentUser != null}" th:href="@{/add-spot}">Add Parking Spot</a>
-                <a th:if="${currentUser != null}" th:href="@{/search}">Search Parking Spot</a>
-                <a th:if="${currentUser == null}" th:href="@{/register}">Register</a>
-                <a th:if="${currentUser == null}" th:href="@{/login}">Login</a>
-            </div>
-            <div th:if="${currentUser != null}" class="logindiv">
-                <p>Logged in as: <span th:text="${currentUser}"></span></p>
-                <form class="My-form" th:action="@{/logout}" method="post">
-                    <button type="submit">Logout</button>
-                </form>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <h2>Welcome to Parking Assistant</h2>
-        <p>Your smart parking solution.</p>
-        <h3>Available Parking Spots</h3>
-        <div id="results">
-            <div th:each="spot : ${parkingSpots}" class="spot">
-                <p><strong>Address:</strong> <span th:text="${spot.address}"></span></p>
-                <p><strong>Available From:</strong> <span th:text="${spot.availableFrom}"></span></p>
-                <p><strong>Available To:</strong> <span th:text="${spot.availableTo}"></span></p>
-                <p><strong>Price Per Hour:</strong> $<span th:text="${spot.pricePerHour}"></span></p>
-                <a th:href="@{/reserve/{id}(id=${spot.id})}"><button>Reserve</button></a>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Parking Assistant</p>
-    </footer>
+	<header class="bg-primary text-white p-3 mb-4">
+		<div class="container">
+			<h1 class="h3">Parking Assistant - Home</h1>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item" th:if="${currentUser != null}"><a
+							class="nav-link" th:href="@{/add-spot}">Add Parking Spot</a></li>
+						<li class="nav-item" th:if="${currentUser != null}"><a
+							class="nav-link" th:href="@{/search}">Search Parking Spot</a></li>
+						<li class="nav-item" th:if="${currentUser == null}"><a
+							class="nav-link" th:href="@{/register}">Register</a></li>
+						<li class="nav-item" th:if="${currentUser == null}"><a
+							class="nav-link" th:href="@{/login}">Login</a></li>
+					</ul>
+					<div class="ml-3" th:if="${currentUser != null}">
+						<span>Logged in as: <a class="username" th:href="@{/user-detail}" th:text="${currentUser}"></a></span>
+						<a href="#"
+							onclick="document.getElementById('logout-form').submit();"
+							class="btn btn-outline-light btn-sm ml-2">Logout</a>
+						<form id="logout-form" th:action="@{/logout}" method="post"
+							style="display: none;"></form>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main class="container">
+		<h2 class="mb-4">Welcome to Parking Assistant</h2>
+		<p>Your smart parking solution.</p>
+		<h3 class="mt-5 mb-4">Available Parking Spots</h3>
+		<div class="row" id="results">
+			<div th:each="spot : ${parkingSpots}" class="col-md-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<p>
+							<strong>Address:</strong> <span th:if="${spot.reserved != null}"
+								th:text="${spot.address}"></span>
+						</p>
+						<p>
+							<strong>Available From:</strong> <span
+								th:if="${spot.reserved != null}" th:text="${spot.availableFrom}"></span>
+						</p>
+						<p>
+							<strong>Available To:</strong> <span
+								th:if="${spot.reserved != null}" th:text="${spot.availableTo}"></span>
+						</p>
+						<p>
+							<strong>Price Per Hour:</strong> <span
+								th:if="${spot.reserved != null}" th:text="${spot.pricePerHour}"></span>
+						</p>
+						<a th:href="@{/reserve/{id}(id=${spot.id})}"
+							class="btn btn-primary btn-block">Reserve</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="bg-light text-center p-3 mt-4">
+		<p>&copy; 2024 Parking Assistant</p>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

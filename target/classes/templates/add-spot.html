@@ -3,46 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking Assistant - Add Parking Spot</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Add Parking Spot - Parking Assistant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<header>
-		<h1>Parking Assistant - Add Spot</h1>
-		<nav>
-			<div class="undernav">
-				<a th:if="${currentUser != null}" th:href="@{/}">Home</a> 
-				<a th:if="${currentUser != null}" th:href="@{/search}">Search parking spot</a> 
-			</div>
-			<div th:if="${currentUser != null}" class="logindiv">
-				<p>
-					Logged in as: <span th:text="${currentUser}"></span>
-				</p>
-					<form class="My-form" th:action="@{/logout}" method="post">
-						<button type="submit">Logout</button>
-					</form>
-			</div>
-		</nav>
-	</header>
-    <main>
-        <form th:action="@{/add-spot}" method="post">
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required>
-
-            <label for="availableFrom">Available From:</label>
-            <input type="datetime-local" id="availableFrom" name="availableFrom" required>
-
-            <label for="availableTo">Available To:</label>
-            <input type="datetime-local" id="availableTo" name="availableTo" required>
-
-            <label for="pricePerHour">Price Per Hour:</label>
-            <input type="number" id="pricePerHour" name="pricePerHour" step="0.01" required>
-
-            <button type="submit">Add Parking Spot</button>
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2024 Parking Assistant</p>
-    </footer>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Add Parking Spot</h2>
+                <form th:action="@{/add-spot}" method="post">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="availableFrom">Available From</label>
+                        <input type="datetime-local" class="form-control" id="availableFrom" name="availableFrom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="availableTo">Available To</label>
+                        <input type="datetime-local" class="form-control" id="availableTo" name="availableTo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pricePerHour">Price Per Hour</label>
+                        <input type="number" class="form-control" id="pricePerHour" name="pricePerHour" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add Spot</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
