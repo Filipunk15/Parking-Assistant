@@ -27,7 +27,6 @@
     - Přihlášení / Registrace: Uživatelé se mohou přihlásit nebo zaregistrovat
     - Vytvoření nového parkovacího místa, zarezervování již stávajícího místa
     - Vyhledávání podle oblasti
-      
  ```
 3. **Příspěvky**
 
