@@ -45,5 +45,4 @@ Pokud chcete přispět k tomuto projektu, postupujte podle těchto kroků:
 Máte otázky nebo návrhy? Kontaktujte mě:
 
     GitHub: Filipunk15
-    E-mail: filip.lafata.28@seznam.cz
 
