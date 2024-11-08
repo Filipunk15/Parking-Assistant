@@ -28,18 +28,7 @@
     - Vytvoření nového parkovacího místa, zarezervování již stávajícího místa
     - Vyhledávání podle oblasti
  ```
-3. **Příspěvky**
-
-Pokud chcete přispět k tomuto projektu, postupujte podle těchto kroků:
-
-    Forkněte tento repozitář.
-    Vytvořte novou větev (git checkout -b feature/NazevFeature).
-    Commitujte změny (git commit -m 'Popis změn').
-    Pushněte do větve (git push origin feature/NazevFeature).
-    Otevřete Pull Request a popište své změny.
-
-
-4. **Kontakt**
+3. **Kontakt**
 
 Máte otázky nebo návrhy? Kontaktujte mě:
 
